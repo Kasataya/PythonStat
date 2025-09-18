@@ -25,7 +25,7 @@ jobs:
 
     - name: Run stock update script
       run: |
-        python currentDate.py
+        python currentDATE.py
 
     - name: Commit and push updated CSV
       run: |
