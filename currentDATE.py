@@ -45,7 +45,7 @@ df_stock = pd.DataFrame(all_data)
 
 # Merge into CSV
 try:
-    df_existing = pd.read_csv("nvax_history2.csv")
+    df_existing = pd.read_csv("data/nvax_history.csv")
     df_combined = pd.concat([df_existing, df_stock], ignore_index=True)
 except FileNotFoundError:
     df_combined = df_stock
@@ -54,7 +54,7 @@ except FileNotFoundError:
 df_combined = df_combined.drop_duplicates(subset=["Date"]).sort_values("Date", ascending=False).reset_index(drop=True)
 
 # Save updated CSV
-df_combined.to_csv("nvax_history2.csv", index=False)
+df_combined.to_csv("data/nvax_history.csv", index=False)
 
 print(f"[LOG] Added {df_stock.iloc[0]['Date']} -> {df_stock.iloc[0]['Price']}")
 print("\nCSV updated. Total rows:", len(df_combined))
