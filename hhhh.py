@@ -1,8 +1,13 @@
 import requests
 import pandas as pd
 from datetime import datetime, timedelta
+import json
 
-API_KEY = "e90ef301070141d4af8ba1f15f26989b"
+with open("config.json") as f:
+    config = json.load(f)
+
+API_KEY = config["API_KEY"]
+
 SYMBOL = "NVAX"
 BASE_URL = "https://api.twelvedata.com/time_series"
 
